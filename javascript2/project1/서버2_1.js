@@ -15,7 +15,7 @@ let server = http.createServer((req, res) => {
   pathName = url.parse(req.url).pathname;
   if (res.method == "GET") {
     //GET방식일 때는 이렇게 string
-    //JSON 각
+
     let query = url.parse(req.url, true).query; //string
     if (pathName == "/") {
       console.log(query["name"]);
@@ -43,3 +43,13 @@ let server = http.createServer((req, res) => {
 server.listen(port, host, () => {
   console.log(`Server start at http://${host}:${port}`);
 });
+
+/* 
+node: npm, yarn
+python: pip
+
+라이브러리를 설치할 때 시스템을 건드리는 라이브러리가 있을때가 있다. 이때는 관리자 권한이 있어야 제대로 설치가 된다.
+
+cmd -> 마우스 오른쪽 -> 관리자 원한
+VS code의 터미널 창도 VS code를 관리자 권한으로 실행하면 관리자권한이 되어서 설치 가능.
+*/
