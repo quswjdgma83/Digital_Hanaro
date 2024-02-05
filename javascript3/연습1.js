@@ -18,7 +18,5 @@ console.log(s == s2); //true
 console.log(ss2 == s2); // false --
 //object == object일 때에는 서로 같은 메모기 공간을  공유하는지 물어본다
 
-console.log(s == SS);
-
 let c = n + bi;
 console.log("c = ", c, typeof c);
