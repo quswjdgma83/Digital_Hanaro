@@ -7,3 +7,5 @@ console.log(foods);
 foods[0] = "양장피";
 console.log(foods2);
 console.log(foods);
+
+//foods2는 foods의 참조변수를 복사했기 때문에 foods의 값이 바뀌면 foods2의 값도 바뀐다
