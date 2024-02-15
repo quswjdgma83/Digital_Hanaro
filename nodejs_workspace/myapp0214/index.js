@@ -41,7 +41,13 @@ app.set("views", path.join(dirname, "views"));
 app.set("view engine", "ejs"); //view 엔진은 ejs를 사용하겠다는 의미이다
 // 이 두개의 설정을 하고 나면 response에 render 함수를 사용할 수 있다. render가 views 폴더에서 확장자가 ejs인 파일을 찾아서 클라이언트로 보낸다.
 
+//외부에서 접속이 가능하도록 폴더를 외부에 노출시켜야 한다.
+app.use(express.static(dirname + "/public")); //js, image, css 등등 static 자료
+app.use("/newimage", express.static(dirname + "/uploads")); // 업로드 한것을 내보내려고 한다.
 //미들웨어 - 중간에 미들웨어를 거친다. 미들웨어의 유/무와 상관없이 다른 코드들은 각자 자기 업무를 실행하면 된다.
+
+//POST 방식으로 전송했을 때 request 객체에 body를 붙여준다.
+//POST 방식으로 오는 데이트만 별도로 처리해서 body속성을 만들어서 보내준다
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
@@ -84,6 +90,11 @@ app.get("/filesend2", (req, res) => {
 //단순 파일이동
 app.get("/filesend3", (req, res) => {
   res.render("filesend3");
+});
+
+//단순 파일이동
+app.get("/filesend4", (req, res) => {
+  res.render("filesend4");
 });
 
 //파일 저장하기

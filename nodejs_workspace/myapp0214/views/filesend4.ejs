@@ -62,16 +62,17 @@
       //       alert(error);
       //     });
 
-      const { data } = await axios.post(
-        "filesave1",
-        {
-          comment: document.querySelector("#comment").value,
-          file: document.querySelector("#file").files,
+      const { data } = await axios({
+        url: "filesave2",
+        method: "POST",
+        data: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: "Bearer api token",
         },
-        {
-          headers: { "Content-Type": "multipart/form-data" },
-        }
-      );
+      });
+      console.log(data);
+      alert(data.result);
     });
   };
 </script>
